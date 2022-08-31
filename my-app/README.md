@@ -1,6 +1,3 @@
-# aind-data-asset-view
-React application to interact with CodeOcean's API to view registered data assets
-
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
