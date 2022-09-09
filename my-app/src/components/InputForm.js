@@ -1,17 +1,20 @@
 import React from 'react';
-import { useState } from 'react';
+// import { useState } from 'react';
 
-const InputForm = () => {
-  const [formData, setFormData] = useState();
+const InputForm = (props) => {
 
-  const printMessage = () => {
-    console.log("button clicked");
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    console.log("inside handle submit")
+    props.getSubjectSchemaCallback();
   };
 
+
   return (
-    <form>
-      <input></input>
-      <button onClick={printMessage}>Submit</button>
+    <form onSubmit={handleSubmit}>
+      <input type="text"></input>
+      <input type="submit" value="Submit!"></input>
     </form>
 
   );
