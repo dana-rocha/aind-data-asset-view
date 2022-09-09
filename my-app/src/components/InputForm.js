@@ -1,16 +1,18 @@
 import React from 'react';
+import { useState } from 'react';
 
 const InputForm = () => {
+  const [formData, setFormData] = useState();
 
   const printMessage = () => {
     console.log("button clicked");
   };
 
   return (
-    <section>
-      <h2> Input form here </h2>
+    <form>
+      <input></input>
       <button onClick={printMessage}>Submit</button>
-    </section>
+    </form>
 
   );
 }
