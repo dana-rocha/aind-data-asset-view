@@ -4,13 +4,14 @@ import InputForm from './components/InputForm';
 
 function App() {
   const [subjectSchema, setSubjectSchema] = useState('');
+  // const [proceduresSchema, setProceduresSchema] = useState('');
 
-  const subjectSchemaURL = 'https://raw.githubusercontent.com/AllenNeuralDynamics/data_schema/main/schemas/Subject%20schema.json';
+  const subjectSchemaURL = 'https://github.com/AllenNeuralDynamics/data_schema/blob/main/schemas/subject.json';
+  // const proceduresSchemaURL = 'https://github.com/AllenNeuralDynamics/data_schema/blob/main/schemas/procedures.json';
 
   const getSubjectSchema = () => {
     axios.get(subjectSchemaURL)
       .then((response) => {
-        console.log(response.data)
 
         // Setting the data in state
         setSubjectSchema(response.data);

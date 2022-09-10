@@ -14,7 +14,7 @@ const InputForm = (props) => {
   return (
     <form onSubmit={handleSubmit}>
       <input type="text"></input>
-      <input type="submit" value="Submit!"></input>
+      <input type="submit"></input>
     </form>
 
   );
