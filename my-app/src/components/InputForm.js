@@ -3,6 +3,14 @@ import React from 'react';
 
 const InputForm = (props) => {
 
+  // console.log(props);
+
+  // const [formData, setFormData] = useState('');
+
+  // const printMessage = () => {
+  //   console.log("button clicked");
+  // };
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -14,7 +22,7 @@ const InputForm = (props) => {
   return (
     <form onSubmit={handleSubmit}>
       <input type="text"></input>
-      <input type="submit"></input>
+      <button type="submit"> Submit </button>
     </form>
 
   );

@@ -2,29 +2,44 @@ import { useState } from 'react';
 import axios from 'axios';
 import InputForm from './components/InputForm';
 
+
 function App() {
   const [subjectSchema, setSubjectSchema] = useState('');
   // const [proceduresSchema, setProceduresSchema] = useState('');
 
-  const subjectSchemaURL = 'https://github.com/AllenNeuralDynamics/data_schema/blob/main/schemas/subject.json';
-  // const proceduresSchemaURL = 'https://github.com/AllenNeuralDynamics/data_schema/blob/main/schemas/procedures.json';
+  const subjectSchemaURL = 'https://raw.githubusercontent.com/AllenNeuralDynamics/data_schema/main/schemas/subject.json';
+// const proceduresSchemaURL = 'https://raw.githubusercontent.com/AllenNeuralDynamics/data_schema/main/schemas/procedures.json';
 
   const getSubjectSchema = () => {
-    axios.get(subjectSchemaURL)
-      .then((response) => {
+    axios({
+      url: subjectSchemaURL,
+      method: 'get',
+      headers: { "Content-Type": "application/json"}
+    })
+    .then((response) => {
+      console.log(response.data)
 
-        // Setting the data in state
-        setSubjectSchema(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      })
+      // Setting the data in state 
+      setSubjectSchema(response.data);
+      // console.log(subjectSchema);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+
+    // return (
+    //   <div>
+    //     {subjectSchema}
+    //   </div>
+    // )
   };
 
 
   return (
     <main>
       <InputForm getSubjectSchemaCallback={getSubjectSchema}></InputForm>
+      {/* {subjectSchema} */}
+      {/* <button onClick={onButtonClick}> Submit </button> */}
     </main>
   );
 }
