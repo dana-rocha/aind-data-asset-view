@@ -1,55 +1,22 @@
-import { useState } from 'react';
-import axios from 'axios';
+import React,{ useState } from 'react';
+// import axios from 'axios';
 import InputForm from './components/InputForm';
-import Subject from './components/Subject';
-import Procedure from './components/Procedure';
-
 
 function App() {
-  const [subjectSchema, setSubjectSchema] = useState([]);
-  const [procedureSchema, setProcedureSchema] = useState([]);
 
-  const subjectSchemaURL = 'https://raw.githubusercontent.com/AllenNeuralDynamics/data_schema/main/schemas/subject.json';
-  const procedureSchemaURL = 'https://raw.githubusercontent.com/AllenNeuralDynamics/data_schema/main/schemas/procedures.json';
+  const [schema, setSchema] = useState([]);
 
-  const getSubjectSchema = () => {
-    axios({
-      url: subjectSchemaURL,
-      method: 'get',
-      headers: { "Content-Type": "application/json"}
-    })
-    .then((response) => {
+  // const subjectSchemaURL = 'https://raw.githubusercontent.com/AllenNeuralDynamics/data_schema/main/schemas/subject.json';
+  // const procedureSchemaURL = 'https://raw.githubusercontent.com/AllenNeuralDynamics/data_schema/main/schemas/procedures.json';
 
-      // Setting the data in state 
-      setSubjectSchema(response.data);
-
-    })
-    .catch((error) => {
-      console.log(error);
-    })
-
-  };
-
-  const getProcedureSchema = () => {
-    axios({
-      url: procedureSchemaURL,
-      method: 'get',
-      headers: { "Content-Type": "application/json"}
-    })
-    .then((response) => {
-      console.log("Procedure Schema", response.data)
-      setProcedureSchema(response.data);
-    })
-    .catch((error) => {
-      console.log(error);
-    })
-  }
-
+  const schema1 = [{"title": "sample schema", "type": "object", "properties": { "name": { "title": "Full Name", "type": "string"},"email": {"title": "Email Address","type": "string"}}}]
 
   return (
-    <main>
-      <InputForm getSubjectSchemaCallback={getSubjectSchema} getProcedureSchemaCallback={getProcedureSchema}></InputForm>
-    </main>
+    <div>
+      {/* <InputForm getSchemaCallback={getSubjectSchema} schema={schema}/> */}
+      <InputForm schema={schema}/>
+      <button onClick={() => setSchema((schema1))}>Use Schema 1</button>
+    </div>
   );
 }
 

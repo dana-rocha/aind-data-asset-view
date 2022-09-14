@@ -2,21 +2,25 @@ import React from 'react';
 
 const InputForm = (props) => {
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    console.log("inside handle submit")
-    props.getSubjectSchemaCallback();
-    props.getProcedureSchemaCallback();
-  };
-
+  const current_schema = props.schema;
+  
+  const schemaComponents = current_schema.map((data) => {
+    return (
+      <div>
+          <li>{data.title}</li>
+          <li>{data.type}</li>
+          {/* <li>{data.properties}</li> */}
+      </div>
+    )
+  });
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text"></input>
-      <button type="submit"> Submit </button>
-    </form>
+    <section>
+      <ul>
+        {schemaComponents}
+      </ul>
+    </section>
   );
-}
+};
 
 export default InputForm;
