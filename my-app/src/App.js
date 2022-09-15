@@ -1,21 +1,21 @@
 import React,{ useState } from 'react';
-// import axios from 'axios';
-import InputForm from './components/InputForm';
 
 function App() {
 
-  const [schema, setSchema] = useState([]);
+  const [schema, setSchema] = useState();
 
-  // const subjectSchemaURL = 'https://raw.githubusercontent.com/AllenNeuralDynamics/data_schema/main/schemas/subject.json';
-  // const procedureSchemaURL = 'https://raw.githubusercontent.com/AllenNeuralDynamics/data_schema/main/schemas/procedures.json';
+  const subjectSchemaURL = 'https://raw.githubusercontent.com/AllenNeuralDynamics/data_schema/main/schemas/subject.json';
 
-  const schema1 = [{"title": "sample schema", "type": "object", "properties": { "name": { "title": "Full Name", "type": "string"},"email": {"title": "Email Address","type": "string"}}}]
+  const getSchema = () => {
+    fetch(subjectSchemaURL)
+      .then((response) => response.json())
+      .then((json) => setSchema(json));
+  }
 
   return (
     <div>
-      {/* <InputForm getSchemaCallback={getSubjectSchema} schema={schema}/> */}
-      <InputForm schema={schema}/>
-      <button onClick={() => setSchema((schema1))}>Use Schema 1</button>
+      <button onClick={() => getSchema()}> Get Subject Schema</button>
+      {JSON.stringify(schema, null, 4)}
     </div>
   );
 }

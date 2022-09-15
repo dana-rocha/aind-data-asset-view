@@ -17,7 +17,7 @@ const InputForm = (props) => {
   return (
     <section>
       <ul>
-        {schemaComponents}
+        {/* {schemaComponents} */}
       </ul>
     </section>
   );
