@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import InputForm from './components/InputForm';
 import axios from 'axios';
+import InputForm from './components/InputForm';
 
 function App() {
 
@@ -29,7 +29,7 @@ function App() {
       <InputForm getSchemaCallback={getSchema}/>
 
       {/* Converts object to a string to render on the page */}
-      {JSON.stringify(schema, null, 4)}
+      {JSON.stringify(schema, null, 10)}
     </div>
   );
 }
