@@ -1,16 +1,19 @@
-import { useState }from 'react';
+import { useState } from 'react';
+// import RenderForm from './RenderForm';
 
-const InputForm = (props) => {
+function InputForm(props) {
 
   const [userInput, setUserInput] = useState("")
 
   const onInput = (e) => {
     e.preventDefault();
     
-    if (userInput === 'subject' || userInput === 'procedures'){
-      props.getSchemaCallback(userInput)
-    }
+    // console.log('inside onInput function');
 
+    if (userInput === 'subject' || userInput === 'procedures'){
+      console.log(userInput)
+      // pass userInput down to RenderForm
+    }
   };
 
   return (
