@@ -1,25 +1,28 @@
-import React from 'react';
+import { useState }from 'react';
 
 const InputForm = (props) => {
 
-  const current_schema = props.schema;
-  
-  const schemaComponents = current_schema.map((data) => {
-    return (
-      <div>
-          <li>{data.title}</li>
-          <li>{data.type}</li>
-          {/* <li>{data.properties}</li> */}
-      </div>
-    )
-  });
+  const [userInput, setUserInput] = useState("")
+
+  const onInput = (e) => {
+    e.preventDefault();
+    
+    if (userInput === 'subject' || userInput === 'procedures'){
+      props.getSchemaCallback(userInput)
+    }
+
+  };
 
   return (
-    <section>
-      <ul>
-        {/* {schemaComponents} */}
-      </ul>
-    </section>
+    <form onSubmit={onInput}>
+      <input
+        type="text"
+        id= "input_box"
+        value={userInput}
+        onChange={(e) => setUserInput(e.target.value)}
+      />
+      <button onClick={onInput}>Submit</button>
+    </form>
   );
 };
 
