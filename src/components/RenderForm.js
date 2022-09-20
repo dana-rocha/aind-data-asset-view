@@ -1,30 +1,49 @@
-// import { useState } from 'react';
-// import axios from 'axios';
+import { useState } from 'react';
+import axios from 'axios';
 
-// // This component needs to:
-// //  1. pull in user input from InputForm
-// //  2. perform GET request based on user input from #1
-// //  3. Render the response from the GET request
+function RenderForm(props) {
+  /**
+   * Read user input from InputForm component.
+   * Perform GET request based on user input
+   * Render response from GET request
+   * 
+   * Arguments: props.userInput (string)
+   * Returns: JSON object
+   */
 
-// const [schema, setSchema] = useState();
+  let currentInput = props.userInput;
 
-// const URL = 'https://raw.githubusercontent.com/AllenNeuralDynamics/data_schema/main/schemas';
+  const [schema, setSchema] = useState();
 
-// const getSchema = async (id) => {
-//   try {
-//     // Make GET request based on input ('subject' or 'procedure') 
-//     const response = await axios({
-//       url: `${URL}/${id}.json`,
-//       method: 'get',
-//       headers: {'Content-Type' : 'application/json'}
-//     })
-//     return (
-//       setSchema(response.data)
-//     )
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+  const URL = 'https://raw.githubusercontent.com/AllenNeuralDynamics/data_schema/main/schemas';
 
-//   {/* Converts object to a string to render on the page */}
-//   {JSON.stringify(schema, null, 10)}
+  const getSchema = async (currentInput) => {
+    /* Make GET request and update state with response*/
+    try {
+      const response = await axios({
+        url: `${URL}/${currentInput}.json`,
+        method: 'get',
+        headers: {'Content-Type' : 'application/json'}
+      })
+      return (
+        setSchema(response.data)
+        )
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    
+    if (currentInput === 'subject' || currentInput === 'procedures') {
+      /* Make GET request based on input ('subject' or 'procedure') */
+    getSchema(currentInput);
+
+    return (
+      <pre id="json">
+        {JSON.stringify(schema, null, 4)}
+      </pre>
+    )
+  };
+
+};
+
+export default RenderForm;

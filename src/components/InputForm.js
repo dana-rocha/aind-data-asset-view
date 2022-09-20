@@ -1,30 +1,32 @@
 import { useState } from 'react';
-// import RenderForm from './RenderForm';
+import RenderForm from './RenderForm';
 
-function InputForm(props) {
+function InputForm() {
+  /**
+   * Function to read user input from input form and passes user input to RenderForm component
+   * Arguments: userInput (string)
+   * Returns: userInput (string)
+   */
 
-  const [userInput, setUserInput] = useState("")
+  const [userInput, setUserInput] = useState("");
+  const [showSchema, setShowSchema] = useState(false);
 
-  const onInput = (e) => {
-    e.preventDefault();
-    
-    // console.log('inside onInput function');
-
-    if (userInput === 'subject' || userInput === 'procedures'){
-      console.log(userInput)
-      // pass userInput down to RenderForm
-    }
+  const handleSubmit = (event) => {
+    event.preventDefault();
   };
 
   return (
-    <form onSubmit={onInput}>
+    <form onSubmit={handleSubmit}>
       <input
         type="text"
         id= "input_box"
         value={userInput}
-        onChange={(e) => setUserInput(e.target.value)}
+        onChange={(event) => setUserInput(event.target.value)}
       />
-      <button onClick={onInput}>Submit</button>
+
+      <button type="submit" onClick={() => setShowSchema(true)}> Submit </button>      
+      {/* Shows JSON schema if state is true */}
+      {showSchema && <RenderForm userInput={userInput}/>}
     </form>
   );
 };
