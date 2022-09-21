@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 
 function RenderForm(props) {
   /**
@@ -11,31 +11,35 @@ function RenderForm(props) {
    * @return {string} JSON object is returned as a string
    */
 
-  let currentInput = props.userInput;
+  const currentInput = props.userInput;
 
   const [schema, setSchema] = useState();
 
   const URL = 'https://raw.githubusercontent.com/AllenNeuralDynamics/data_schema/main/schemas';
 
   useEffect(() => {
-    const getSchema = async (currentInput) => {
-      /* Make GET request and update state with response*/
-      try {
-        const response = await axios({
-          url: `${URL}/${currentInput}.json`,
-          method: 'get',
-          headers: {'Content-Type' : 'application/json'}
-        })
-        return (
-          setSchema(response.data)
-          )
-      } catch (error) {
-        console.log(error);
-      
-      }
-    }, [props.userInput]}
-  );
-  
+    if (currentInput == null || currentInput === '') {
+      return;
+    }
+    fetch(`${URL}/${currentInput}.json`)
+      .then(results => results.json())
+      .then(data => {
+        setSchema(data);
+      });
+  }, [currentInput]);
+  // useEffect(() => {
+  //   const getSchema = async () => {
+  //     /* Make GET request and update state with response*/
+  //     const response = await axios({
+  //         url: `${URL}/${currentInput}.json`,
+  //         method: 'get',
+  //         headers: {'Content-Type' : 'application/json'}
+  //     }
+  //     )
+  //     setSchema(response.data);
+  //   }, [currentInput]}
+  // );
+
   // if (currentInput === 'subject' || currentInput === 'procedures') {
     /* Make GET request based on input ('subject' or 'procedure') */
     // getSchema(currentInput);

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import RenderForm from './RenderForm';
+// import RenderForm from './RenderForm';
 
 function InputForm(props) { 
   /**
@@ -10,10 +10,15 @@ function InputForm(props) {
   const [userInput, setUserInput] = useState("");
   // const [showSchema, setShowSchema] = useState(false);
 
+  const handleChange = (event) => {
+    setUserInput(event.target.value)
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    props.handleData(userInput)
+    // setUserInput(event.target.value)
+    // props.handleData(userInput)
   };
 
   return (
@@ -22,10 +27,10 @@ function InputForm(props) {
         type="text"
         id= "input_box"
         value={userInput}
-        onChange={(event) => setUserInput(event.target.value)}
+        onChange={handleChange}
       />
 
-      {/* <button type="submit" onClick={handleSubmit}> Submit </button>       */}
+      <button type="submit" onClick={props.handleData(userInput)}> Submit </button>      
       {/* Shows JSON schema if state is true */}
     </form>
   );
