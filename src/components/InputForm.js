@@ -17,7 +17,6 @@ function InputForm(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // setUserInput(event.target.value)
     props.handleData(userInput)
   };
 
@@ -25,11 +24,10 @@ function InputForm(props) {
     <form onSubmit={handleSubmit}>
       <input
         type="text"
-        id= "input_box"
         value={userInput}
         onChange={handleChange}
       />
-      <input type="submit" value="submit"/>
+      <button type="submit" onClick={handleSubmit}>Submit</button>
     </form>
   );
 };
