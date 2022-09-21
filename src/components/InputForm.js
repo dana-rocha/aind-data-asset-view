@@ -18,7 +18,7 @@ function InputForm(props) {
     event.preventDefault();
 
     // setUserInput(event.target.value)
-    // props.handleData(userInput)
+    props.handleData(userInput)
   };
 
   return (
@@ -29,9 +29,7 @@ function InputForm(props) {
         value={userInput}
         onChange={handleChange}
       />
-
-      <button type="submit" onClick={props.handleData(userInput)}> Submit </button>      
-      {/* Shows JSON schema if state is true */}
+      <input type="submit" value="submit"/>
     </form>
   );
 };
