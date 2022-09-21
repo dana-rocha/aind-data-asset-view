@@ -1,11 +1,10 @@
 import { useState } from 'react';
 import RenderForm from './RenderForm';
 
-function InputForm() {
+function InputForm() { 
   /**
    * Function to read user input from input form and passes user input to RenderForm component
-   * Arguments: userInput (string)
-   * Returns: userInput (string)
+   * @return {string} userInput is passed to RenderForm as a prop 
    */
 
   const [userInput, setUserInput] = useState("");

@@ -7,8 +7,8 @@ function RenderForm(props) {
    * Perform GET request based on user input
    * Render response from GET request
    * 
-   * Arguments: props.userInput (string)
-   * Returns: JSON object
+   * @param {string} props.userInput is passed in and used for GET request
+   * @return {string} JSON object is returned as a string
    */
 
   let currentInput = props.userInput;
