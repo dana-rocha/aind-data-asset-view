@@ -8,7 +8,6 @@ function InputForm(props) {
    */
 
   const [userInput, setUserInput] = useState("");
-  // const [showSchema, setShowSchema] = useState(false);
 
   const handleChange = (event) => {
     setUserInput(event.target.value)

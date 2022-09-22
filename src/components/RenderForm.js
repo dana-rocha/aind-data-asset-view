@@ -27,22 +27,6 @@ function RenderForm(props) {
         setSchema(data);
       });
   }, [currentInput]);
-  // useEffect(() => {
-  //   const getSchema = async () => {
-  //     /* Make GET request and update state with response*/
-  //     const response = await axios({
-  //         url: `${URL}/${currentInput}.json`,
-  //         method: 'get',
-  //         headers: {'Content-Type' : 'application/json'}
-  //     }
-  //     )
-  //     setSchema(response.data);
-  //   }, [currentInput]}
-  // );
-
-  // if (currentInput === 'subject' || currentInput === 'procedures') {
-    /* Make GET request based on input ('subject' or 'procedure') */
-    // getSchema(currentInput);
 
     return (
       <pre id="json">
