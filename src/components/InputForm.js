@@ -1,27 +1,32 @@
-import { useState }from 'react';
+import { useState } from 'react';
+// import RenderForm from './RenderForm';
 
-const InputForm = (props) => {
+function InputForm(props) { 
+  /**
+   * Function to read user input from input form and passes user input to RenderForm component
+   * @return {string} userInput is passed to RenderForm as a prop 
+   */
 
-  const [userInput, setUserInput] = useState("")
+  const [userInput, setUserInput] = useState("");
 
-  const onInput = (e) => {
-    e.preventDefault();
-    
-    if (userInput === 'subject' || userInput === 'procedures'){
-      props.getSchemaCallback(userInput)
-    }
+  const handleChange = (event) => {
+    setUserInput(event.target.value)
+  }
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    props.handleData(userInput)
   };
 
   return (
-    <form onSubmit={onInput}>
+    <form onSubmit={handleSubmit}>
       <input
         type="text"
-        id= "input_box"
         value={userInput}
-        onChange={(e) => setUserInput(e.target.value)}
+        onChange={handleChange}
       />
-      <button onClick={onInput}>Submit</button>
+      <button type="submit" onClick={handleSubmit}>Submit</button>
     </form>
   );
 };
