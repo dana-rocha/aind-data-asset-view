@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import PropTypes from 'prop-types';
 
 const sortFieldOptions = ['Created', 'Type', 'Name', 'Size'];
@@ -10,47 +9,32 @@ function InputForm({ handleData }) {
    * @return {string} userInput
    */
 
-  const [userInput, setUserInput] = useState('');
-  const [selectedField, setSelectedField] = useState(sortFieldOptions[0]);
-  const [sortBy, setSortBy] = useState('asc');
-
-  const handleChange = (event) => {
-    setUserInput(event.target.value);
-  };
-
   const handleSubmit = (event) => {
     event.preventDefault();
+    const formData = new FormData(event.target);
 
-    handleData(userInput);
-  };
-
-  const sortSubmit = () => {
-    console.log(selectedField);
-    console.log(sortBy);
+    const formDataObject = Object.fromEntries(formData.entries());
+    handleData(formDataObject);
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      {/* Type dropdown */}
-      <select value={userInput} onChange={handleChange}>
-        <option value="Result">Result</option>
-        <option value="Dataset">Dataset</option>
+      <select name="type" defaultValue="">
+        {/* <option value="result">Result</option> */}
+        <option defaultValue="dataset">Dataset</option>
       </select>
-      {/* Start and Limit for search index */}
-      <input type="number" placeholder="Start" min="0" max="30" />
-      <input type="number" placeholder="Limit" min="0" max="30" />
-      {/* Sort order dropdown */}
-      <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
+      <input name="start" type="number" min="0" max="30" defaultValue="0" />
+      <input name="limit" type="number" min="0" max="200" defaultValue="0" />
+      <select name="sort_order">
         <option value="asc">Ascending</option>
         <option value="desc">Descending</option>
       </select>
-      {/* Sort Field dropdown */}
-      <select value={selectedField} onChange={(e) => setSelectedField(e.target.value)}>
+      <select name="sort_field">
         {sortFieldOptions.map((value) => (
-          <option value={value} key={value}>{value}</option>
+          <option defaultValue={value.toLowerCase()} key={value}>{value}</option>
         ))}
       </select>
-      <button type="submit" onClick={sortSubmit}>
+      <button type="submit">
         Submit
       </button>
     </form>

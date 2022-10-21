@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import urlBuilder from '../utilities/utils';
 
 function RenderForm({ userInput }) {
   /**
@@ -8,33 +9,46 @@ function RenderForm({ userInput }) {
    * @return {React.ReactComponentElement} Table header and rows
    */
 
-  const [schema, setSchema] = useState([]);
-  const URL = 'http://localhost:8080/data_assets?type=dataset';
+  const [schema, setSchema] = useState();
+
+  const urlProxy = 'http://localhost:8080/data_assets';
+
+  const handleErrors = (response) => {
+    if (!response.ok) {
+      throw new Error(response.status);
+    } return response;
+  };
 
   useEffect(() => {
-    const getResponse = async () => {
-      const response = await fetch(URL);
-      const data = await response.json();
-      setSchema(data.results);
-    };
-    getResponse();
+    if (userInput) {
+      const url = urlBuilder(urlProxy, userInput);
+      const getResponse = async () => {
+        const response = await fetch(url)
+          .catch((error) => {
+            handleErrors(error);
+          });
+        const data = await response.json();
+        setSchema(data.results);
+      };
+      getResponse();
+    }
   }, [userInput]);
 
-  const displaySchema = schema.map((info) => (
-    <tr key={info.id}>
-      <td>{info.id}</td>
-      <td>{new Date(info.created * 1000).toLocaleString()}</td>
-      <td>{info.name}</td>
-      <td>{info.state}</td>
-      <td>{info.type}</td>
-      <td>{info.tags}</td>
-      <td>{info.description}</td>
-      <td>{info.files}</td>
-      <td>{info.size}</td>
-    </tr>
-  ));
+  if (schema) {
+    const displaySchema = schema.map((info) => (
+      <tr key={info.id}>
+        <td>{info.id}</td>
+        <td>{new Date(info.created * 1000).toLocaleString()}</td>
+        <td>{info.name}</td>
+        <td>{info.state}</td>
+        <td>{info.type}</td>
+        <td>{info.tags}</td>
+        <td>{info.description}</td>
+        <td>{info.files}</td>
+        <td>{info.size}</td>
+      </tr>
+    ));
 
-  if (userInput) {
     return (
       <table>
         <thead>
@@ -62,7 +76,9 @@ function RenderForm({ userInput }) {
 }
 
 RenderForm.propTypes = {
-  userInput: PropTypes.string.isRequired,
+  userInput: PropTypes.shape({}),
 };
-
+RenderForm.defaultProps = {
+  userInput: undefined,
+};
 export default RenderForm;
