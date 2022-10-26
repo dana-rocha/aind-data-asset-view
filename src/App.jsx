@@ -10,8 +10,8 @@ function App() {
   };
   return (
     <div>
-      <InputForm handleData={childToParent} />
-      <RenderForm userInput={data} />
+      <InputForm data-testid="input-form" handleData={childToParent} />
+      <RenderForm data-testid="render-form" userInput={data} />
     </div>
   );
 }
