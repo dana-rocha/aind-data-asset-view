@@ -14,7 +14,7 @@ jobs:
           echo "Start version check"
           pkg_name="package.json"
           git fetch --quiet --all
-          latest_tag=$(git describe --tags `git rev-list --tags --max-count=1`)
+          latest_tag=$(cat $pkg_name | grep '"version": "')
           [[ $latest_tag =~ ([0-9]+).([0-9]+).([0-9]+) ]]
           latest_tag_patch=${BASH_REMATCH[3]}
           latest_tag_minor=${BASH_REMATCH[2]}
