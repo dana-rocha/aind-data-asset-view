@@ -16,7 +16,7 @@ jobs:
           new_tag=$(grep -Po '\d+\.\d+\.\d+' package.json)
           echo "::set-output name=version::$new_tag"
       - name: Bump tag
-        uses: mathieudutour/github-tag-action@v6.0
+        uses: mathieudutour/github-tag-action@v6.1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           custom_tag: ${{ steps.getversion.outputs.version }}
