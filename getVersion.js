@@ -1,2 +1,2 @@
-const packagejson = require('./package.json');
-console.log(packagejson.version);
+import { version } from './package.json';
+console.log(version);
