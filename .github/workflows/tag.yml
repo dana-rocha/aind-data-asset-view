@@ -10,11 +10,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: Extract version from file
         id: getversion
-        run: |
-          echo "Start version check"
-          pkg_name="package.json"
-          new_tag=$(grep -Po '\d+\.\d+\.\d+' package.json)
-          echo "::set-output name=version::$new_tag"
+        run: node getVersion.js
       - name: Bump tag
         uses: mathieudutour/github-tag-action@v6.1
         with:
