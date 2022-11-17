@@ -24,7 +24,8 @@
     "lint": "eslint \"src/**/*.{js,jsx}\"",
     "lint-fix": "eslint --fix \"src/**/*.{js,jsx}\"",
     "format": "prettier --check ./src",
-    "format-fix": "prettier --write ./src"
+    "format-fix": "prettier --write ./src",
+    "bump": "npm version"
   },
   "lint-staged": {
     "src/**/*.{js,jsx}": [
