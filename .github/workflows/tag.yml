@@ -13,7 +13,7 @@ jobs:
         run: |
           echo "Start version check"
           pkg_name="package.json"
-          new_tag=$(grep -P '"version": "[0-9]+\.[0-9]+\.[0-9]+",$' package.json)
+          new_tag=$(grep -Po '\d+\.\d+\.\d+' package.json)
           echo "::set-output name=version::$new_tag"
       - name: Bump tag
         uses: mathieudutour/github-tag-action@v6.0
