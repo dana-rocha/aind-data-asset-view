@@ -1,5 +1,4 @@
 name: Set tag to version
-
 on:
   push:
     branches:
