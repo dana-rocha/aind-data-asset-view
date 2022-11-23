@@ -4,10 +4,9 @@ import { DateTime } from 'luxon';
 
 const convertTimestamp = (timeValue) => {
   const formattedDatetime = DateTime.fromSeconds(timeValue).toLocaleString(
-    DateTime.DATETIME_MED,
-  );
+    DateTime.DATETIME_MED,);
   return formattedDatetime;
-};
+}
 
 const columns = [
   {
@@ -136,4 +135,7 @@ DataTable.defaultProps = {
   rows: undefined,
 };
 
+
 export default DataTable;
+
+
