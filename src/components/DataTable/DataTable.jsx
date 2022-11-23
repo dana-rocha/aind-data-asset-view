@@ -122,8 +122,8 @@ const columns = [
 
 function DataTable({ rows }) {
   return (
-    <div style={{ height: 700, width: '100%' }}>
-      <DataGrid rows={rows} columns={columns} pageSize={50} />
+    <div style={{ height: 450, width: '100%' }}>
+      <DataGrid rows={rows} columns={columns} pageSize={20} />
     </div>
   );
 }
