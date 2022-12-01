@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
@@ -12,7 +12,6 @@ import HeaderItems from './consts/HeaderItems';
 
 function Header() {
   const theme = useTheme();
-  const navigate = useNavigate();
   const [tab, setTab] = useState(0);
   const isMatch = useMediaQuery(theme.breakpoints.down('md'));
 
@@ -34,7 +33,8 @@ function Header() {
               <Tab
                 key={item.id}
                 label={item.label}
-                onClick={() => navigate(item.route)}
+                component={Link}
+                to={`${item.route}`}
               />
             ))}
           </Tabs>

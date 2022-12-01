@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -10,7 +10,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 import HeaderItems from '../Header/consts/HeaderItems';
 
 function SideDrawer() {
-  const navigate = useNavigate();
   const [openDrawer, setOpenDrawer] = useState(false);
 
   return (
@@ -20,12 +19,12 @@ function SideDrawer() {
           {HeaderItems.map((item) => (
             <ListItemButton
               key={item.id}
+              component={Link}
+              to={`${item.route}`}
               onClick={() => setOpenDrawer(!openDrawer)}
             >
               <ListItemIcon>
-                <ListItemText onClick={() => navigate(item.route)}>
-                  {item.label}
-                </ListItemText>
+                <ListItemText>{item.label}</ListItemText>
               </ListItemIcon>
             </ListItemButton>
           ))}
