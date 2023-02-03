@@ -1,9 +1,14 @@
 # aind-data-asset-view
 
 React application to interact with Code Ocean's API to view registered data assets.
+<br>
+This application was deployed through GCP App Engine.
 
 [Deployed Demo](https://aind-data-asset-view-dot-neural-dynamics-dev.uw.r.appspot.com/) | [Recorded Demo](https://user-images.githubusercontent.com/46910672/216476746-51553614-fb29-4c29-b4e9-5e892d242045.mp4)
 
+<img width="600" alt="Screen Shot 2023-02-02 at 13 39 36" src="https://user-images.githubusercontent.com/46910672/216477873-59c04434-2f86-4a1f-bb51-32ba2027d166.png">
+
+<img width="600" alt="Screen Shot 2023-02-02 at 13 39 53" src="https://user-images.githubusercontent.com/46910672/216477969-650cda8c-b75b-4954-8b9c-219c6f2f808f.png">
 
 ### Getting Started with Create React App
 
