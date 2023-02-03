@@ -1,18 +1,26 @@
 # aind-data-asset-view
 
 React application to interact with Code Ocean's API to view registered data assets.
+<br>
+This application was deployed through GCP App Engine.
 
-This application was [deployed](https://aind-data-asset-view-dot-neural-dynamics-dev.uw.r.appspot.com/) through GCP App Engine.
+## Demo
 
-## Getting Started with Create React App
+[Deployed Demo](https://aind-data-asset-view-dot-neural-dynamics-dev.uw.r.appspot.com/) | [Recorded Demo](https://user-images.githubusercontent.com/46910672/216476746-51553614-fb29-4c29-b4e9-5e892d242045.mp4)
+
+<img width="600" alt="Screen Shot 2023-02-02 at 13 39 36" src="https://user-images.githubusercontent.com/46910672/216477873-59c04434-2f86-4a1f-bb51-32ba2027d166.png">
+
+<img width="600" alt="Screen Shot 2023-02-02 at 13 39 53" src="https://user-images.githubusercontent.com/46910672/216477969-650cda8c-b75b-4954-8b9c-219c6f2f808f.png">
+
+### Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-### Available Scripts
+#### Available Scripts
 
 In the project directory, you can run:
 
-#### `npm start`
+##### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
@@ -20,12 +28,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-#### `npm test`
+##### `npm test`
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-#### `npm run build`
+##### `npm run build`
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -35,7 +43,7 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-#### `npm run eject`
+##### `npm run eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
@@ -45,41 +53,41 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-### Learn More
+#### Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-#### Code Splitting
+##### Code Splitting
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-#### Analyzing the Bundle Size
+##### Analyzing the Bundle Size
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-#### Making a Progressive Web App
+##### Making a Progressive Web App
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-#### Advanced Configuration
+##### Advanced Configuration
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-#### Deployment
+##### Deployment
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-#### `npm run build` fails to minify
+##### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-## Setting up ESLint
+### Setting up ESLint
 
 In the project root directory, run:
 
-#### `npm init @eslint/config`
+##### `npm init @eslint/config`
 
 This will install ESLint and create a config file (.eslintrc). Choose the Airbnb Style Guide and JSON for the config file format.
 
@@ -93,11 +101,11 @@ In the package.json file, update 'scripts' to include:
 Once the package.json file is updated, you can run `npm run lint` to execute the linter.
 Run `npm run lint-fix` to execute and fix warnings.
 
-## Setting up Prettier
+### Setting up Prettier
 
 In the project root directory, run:
 
-#### `npm install prettier eslint-config-prettier eslint-plugin-prettier --save-dev`
+##### `npm install prettier eslint-config-prettier eslint-plugin-prettier --save-dev`
 
 In the .eslintrc.json file, update 'plugins' to:
 
@@ -130,7 +138,7 @@ In the package.json file, update 'scripts' to include:
 
 Once the package.json file is updated, you can run `npm run format-fix` to execute and fix code format. After this, run `npm run format` to see that all files have been formatted correctly.
 
-#### Apply Prettier when files are saved in VS Code:
+##### Apply Prettier when files are saved in VS Code:
 
 - Install the Prettier extension
 - Go into Settings
