@@ -4,6 +4,8 @@ React application to interact with Code Ocean's API to view registered data asse
 <br>
 This application was deployed through GCP App Engine.
 
+## Demo
+
 [Deployed Demo](https://aind-data-asset-view-dot-neural-dynamics-dev.uw.r.appspot.com/) | [Recorded Demo](https://user-images.githubusercontent.com/46910672/216476746-51553614-fb29-4c29-b4e9-5e892d242045.mp4)
 
 <img width="600" alt="Screen Shot 2023-02-02 at 13 39 36" src="https://user-images.githubusercontent.com/46910672/216477873-59c04434-2f86-4a1f-bb51-32ba2027d166.png">
